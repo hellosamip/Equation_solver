@@ -1,0 +1,1 @@
+The attached code works on the basis of crammer's rule to solve equations. It accepts coefficients of equation (must be in the form of ax + by = c). Suggestions regarding optimization of source code are highly appreciated.
