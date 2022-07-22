@@ -1,0 +1,43 @@
+#include<stdio.h>
+int getdeterminant(int, int, int, int);
+int main(void) {
+	int wholematrix[2][3];
+	printf("\t\t\tEquation solver {Application of crammer's rule}\n");
+	printf("Equations in the form of ax + by = c are only accepted..!\n");
+	printf("For First Equation: \n");
+	printf("Coefficient of: \n");
+	printf("X: \n");
+	scanf("%d", &wholematrix[0][0]);
+	printf("Y: \n");
+	scanf("%d", &wholematrix[0][1]);
+	printf("Constant term: \n");
+	scanf("%d", &wholematrix[0][2]);
+	printf("\n~~~~~~~~~~~~~~~~~~~~~~~\n");
+	printf("For Second Equation: \n");
+	printf("Coefficient of: \n");
+	printf("X: \n");
+	scanf("%d", &wholematrix[1][0]);
+	printf("Y: \n");
+	scanf("%d", &wholematrix[1][1]);
+	printf("Constant term: \n");
+	scanf("%d", &wholematrix[1][2]);
+	
+	int D = getdeterminant(wholematrix[0][0], wholematrix[0][1], wholematrix[1][0], wholematrix[1][1]);
+	int D1 = getdeterminant(wholematrix[0][2], wholematrix[0][1], wholematrix[1][2], wholematrix[1][1]);
+	int D2 = getdeterminant(wholematrix[0][0], wholematrix[0][2], wholematrix[1][0], wholematrix[1][2]);
+	
+	printf("\n~~~~~~~~~~~~~~~~~~~~~~~\n");
+	if (D == 0) {
+		printf("Division by 0 occurs, invalid case..\n");
+	}
+	else {
+		printf("D = %d \nDx = %d \nDy = %d\n", D, D1, D2); 
+		int x = D1 / D; int y = D2 / D;
+		printf("\n~~~~~~~~~~~~~~~~~~~~~~~\n");
+		printf("Result: \nX = %d \nY = %d\n", x, y);
+	}
+	return 0;
+}
+int getdeterminant(int a, int b, int c, int d) {
+	return a*d - c*b;
+}
